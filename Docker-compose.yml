@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - .env
+    ports:
+      - "${PORT}:${PORT}"   # Expose backend port from .env
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET=${JWT_SECRET}
+      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
+      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
+      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
+      - NODE_ENV=${NODE_ENV}
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./frontend
+    env_file:
+      - .env
+    ports:
+      - "5173:5173" 
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL}  
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:6
+    container_name: chatapp_mongo
+    ports:
+      - "27017:27017"
+#     volumes:
+#       # - mongo_data:/data/db
+
+# volumes:
+#   mongo_data:

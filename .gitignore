@@ -1,0 +1,2 @@
+# the docker env file needs to be hidden
+.env
