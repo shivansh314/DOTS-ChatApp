@@ -7,7 +7,7 @@ import { io } from "socket.io-client";
 //     ? "http://localhost:5001"
 //     : import.meta.env.VITE_API_BASE_URL;
 
-const BASE_URL = "http://16.16.70.146:5001";
+const BASE_URL = "http://16.170.231.98:5001";
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
