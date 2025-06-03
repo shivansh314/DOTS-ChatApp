@@ -4,10 +4,10 @@ services:
   backend:
     build:
       context: ./backend
-    env_file:
-      - .env
+    # env_file:
+    #   - .env
     ports:
-      - "5001:5001"   # Expose backend port from .env
+      - "5001:5001"  
     environment:
       - MONGODB_URI=mongodb+srv://shivansh:Shivansh31415@chat-app.tz901x5.mongodb.net/chatappDB?retryWrites=true&w=majority&appName=chat-app
       - JWT_SECRET=4cca6db57518691d646ae994a86658a814893488ffc61bee8e3f0af57260aeffda131d15625b464574c6c8e6b6898697e36a89851b4c21728a1e7964f36a13cf
@@ -15,6 +15,7 @@ services:
       - CLOUDINARY_API_KEY=433557261253722
       - CLOUDINARY_API_SECRET=Cu5505YZjMcrrSEj052nEI1Qc3A
       - NODE_ENV=production
+      - PORT=5001
     restart: unless-stopped
     depends_on:
       - mongo
@@ -22,8 +23,8 @@ services:
   frontend:
     build:
       context: ./frontend
-    env_file:
-      - .env
+    # env_file:
+    #   - .env
     ports:
       - "5173:5173" 
     environment:
