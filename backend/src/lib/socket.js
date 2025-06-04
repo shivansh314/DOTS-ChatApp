@@ -7,7 +7,11 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://13.49.70.101:5173"],
+    origin: [
+      "http://localhost:5173", // optional for local dev
+      "http://13.51.207.136", // ✅ your production frontend
+      "https://13.51.207.136", // optional if you enable HTTPS later
+    ],
   },
 });
 

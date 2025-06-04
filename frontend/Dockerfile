@@ -1,20 +1,28 @@
-# Use an official Node.js image as the base
-FROM node:18-alpine
+# Stage 1: Build Vite app
 
-# Set working directory
+FROM node:18-alpine AS builder
+
 WORKDIR /app
 
-# Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
 COPY . .
 
-# Expose port 80
-EXPOSE 5173
+RUN npm run build
 
-# Start nginx
-CMD ["npm", "run", "dev"]
+# Stage 2: Serve built files using a lightweight Express server
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY --from=builder /app/dist ./dist
+
+COPY server.js .
+
+RUN npm install express
+
+EXPOSE 80
+
+CMD ["node", "server.js"]
