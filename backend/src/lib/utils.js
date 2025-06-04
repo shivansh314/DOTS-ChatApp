@@ -12,7 +12,7 @@ export const generateToken = (userId, res) => {
     maxAge: 7 * 24 * 60 * 60 * 1000, // MS
     httpOnly: true, // prevent XSS attacks cross-site scripting attacks
     sameSite: "lax", // Changed from "strict" to "lax" - this is the key fix!
-    secure: process.env.NODE_ENV === "production", // Only secure in production
+    secure: false, // Only secure in production
     path: "/", // Explicitly set path
   });
 
