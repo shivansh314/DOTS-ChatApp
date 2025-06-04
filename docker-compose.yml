@@ -30,7 +30,7 @@ services:
     depends_on:
       - backend
   mongo:
-    image: mongo:5
+    image: mongo:6
     container_name: chatapp_mongo
     ports:
       - "27017:27017"
