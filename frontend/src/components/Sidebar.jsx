@@ -19,6 +19,15 @@ const Sidebar = () => {
     ? users.filter((user) => onlineUsers.includes(user._id))
     : users;
 
+    console.log(
+      "Sidebar loading state:",
+      isUsersLoading,
+      "users:",
+      users.length
+    );
+
+    console.log("Sidebar loading state:", isUsersLoading, "users:", users.length);
+
   if (isUsersLoading) return <SidebarSkeleton />;
 
   return (
