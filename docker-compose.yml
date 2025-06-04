@@ -29,7 +29,7 @@ services:
       - "5173:5173" 
     environment:
       - MODE=production
-      - VITE_API_BASE_URL=http://16.170.231.98:5001/api
+      - VITE_API_BASE_URL=http://13.49.70.101:5001/api
     depends_on:
       - backend
 
