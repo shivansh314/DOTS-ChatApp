@@ -12,7 +12,7 @@ import axios from "axios";
 
 export const axiosInstance = axios.create({
   // baseURL: import.meta.env.VITE_API_BASE_URL,
-  baseURL: "http://13.51.207.136:5001/api",
+  baseURL: "http://51.21.200.151:5001/api",
   withCredentials: true,
 });
 
