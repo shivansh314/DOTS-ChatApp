@@ -9,8 +9,8 @@ const io = new Server(server, {
   cors: {
     origin: [
       "http://localhost:5173", // optional for local dev
-      "http://51.21.200.151", // ✅ your production frontend
-      "https://51.21.200.151", // optional if you enable HTTPS later
+      "http://13.49.12.187", // ✅ your production frontend
+      "https://13.49.12.187", // optional if you enable HTTPS later
     ],
   },
 });

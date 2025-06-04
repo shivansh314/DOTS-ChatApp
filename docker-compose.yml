@@ -26,7 +26,7 @@ services:
     ports:
       - "80:80"
     environment:
-      - VITE_API_BASE_URL=http://51.21.200.151:5001/api
+      - VITE_API_BASE_URL=http://13.49.12.187:5001/api
     depends_on:
       - backend
   mongo:
