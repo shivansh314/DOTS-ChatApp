@@ -13,6 +13,7 @@ const Sidebar = () => {
 
   useEffect(() => {
     getUsers();
+    set({ isUsersLoading: false });
   }, [getUsers]);
 
   const filteredUsers = showOnlineOnly
